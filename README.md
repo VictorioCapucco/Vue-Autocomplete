@@ -1,23 +1,44 @@
 # vue-autocomplete
 
-## Project setup
+## Vue autocomplete
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm install vue-autocomplete-input-tag
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Usage
+```html
+<template>
+  <div>
+     <autocomplete v-model="teste" :items="items" />
+  </div>
+</template>
 
-### Lints and fixes files
-```
-npm run lint
+<script>
+  import autocomplete from 'vue-autocomplete-input-tag'
+
+  export default {
+    name: "App",
+    components: {
+      autocomplete,
+    },
+    data() {
+      return {
+        teste: "",
+        items: [
+          "Banana",
+          "Morango",
+          "Caju",
+          "Laranja",
+          "Limão",
+          "Abacaxi",
+          "Manga",
+          "Melancia",
+          "Melão",
+        ],
+      };
+    },
+  };
+</script>
 ```
 
 ### Customize configuration
