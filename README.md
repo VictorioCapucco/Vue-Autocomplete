@@ -39,7 +39,7 @@ npm install vue-autocomplete-input-tag
 </script>
 ```
 
-### Props
+## Props
 ```html
 <template>
   <div>
@@ -48,15 +48,15 @@ npm install vue-autocomplete-input-tag
 </template>
 ```
 <ul>
-<li><h3>isLoading:</h3> You can inform the component if something is loading. It works with 'disableWhenLoading' prop. It's a Boolean prop, and the default value is false.</li>
+<li><h4>isLoading:</h4> You can inform the component if something is loading. It works with 'disableWhenLoading' prop. It's a Boolean prop, and the default value is false.</li>
 
-<li><h3>disableWhenLoading:</h3> Disable input to user when the prop 'isLoading' is true. It's a Boolean prop, and the default value is false.</li>
+<li><h4>disableWhenLoading:</h4> Disable input to user when the prop 'isLoading' is true. It's a Boolean prop, and the default value is false.</li>
 
-<li><h3>permitArbitraryValues:</h3> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is false.</li>
+<li><h4>permitArbitraryValues:</h4> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is false.</li>
 
-<li><h3>error:</h3> You can change the input's border color to red, when some error occurs. It's a Boolean prop, and the default value is false.</li>
+<li><h4>error:</h4> You can change the input's border color to red, when some error occurs. It's a Boolean prop, and the default value is false.</li>
 
-<li><h3>inputHeight:</h3> With this prop you can modify the input's height, in px. It's a Number prop, and the default value is 30. </li>
+<li><h4>inputHeight:</h4> With this prop you can modify the input's height, in px. It's a Number prop, and the default value is 30. </li>
 </ul>
 
 ### Customize configuration
