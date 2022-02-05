@@ -69,6 +69,10 @@
         type: Number,
         default: 30,
       },
+      isLoading: {
+        type: Boolean,
+        default: false,
+      },
     },
     methods: {
       closeItems() {
