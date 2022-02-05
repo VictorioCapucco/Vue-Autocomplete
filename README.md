@@ -1,5 +1,3 @@
-# vue-autocomplete
-
 ## Vue autocomplete
 ```
 npm install vue-autocomplete-input-tag
