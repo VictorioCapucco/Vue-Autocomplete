@@ -1,7 +1,7 @@
 {
   "name": "vue-autocomplete-input-tag",
   "author": "Victorio Capucço",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorioCapucco/Vue-Autocomplete"
@@ -9,39 +9,20 @@
   "main": "./dist/vueAutocompleteInput.common.js",
   "license": "MIT",
   "description": "A library to show items from an array, when user types some value presents in it",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:npm": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js",
-    "lint": "vue-cli-service lint",
-    "build:stats": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js --report-json"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "files": [
     "dist/*"
   ],
   "keywords": [
     "vue",
     "autocomplete",
+    "select",
+    "auto-complete",
+    "search",
     "vue3",
-    "input"
+    "input",
+    "taginput",
+    "tag-input",
+    "input-tag",
+    "search-input"
   ]
 }
