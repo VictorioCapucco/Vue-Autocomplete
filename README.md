@@ -99,5 +99,6 @@ npm install vue-autocomplete-input-tag
 If you pass an array of strings (first example) the return will be just a string with the typed value, and when you select some option will be the selected value. 
 
 If you pass an array of objects (second example), when you type, the returned value will be an object with "typed" property. And when you select some option, will return what you inform in "returned" prop. The typed property is returned because you can use @input and refresh the array.
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### References
+"Como criar e publicar uma biblioteca (em Vue) no npm?" -> https://medium.com/tableless/como-criar-e-publicar-uma-biblioteca-em-vue-no-npm-2dff8271ca7d
