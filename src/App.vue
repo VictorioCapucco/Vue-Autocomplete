@@ -3,7 +3,12 @@
     {{ teste }}
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="teste">
-      <autocomplete v-model="teste" :items="items" />
+      <autocomplete
+        v-model="teste"
+        :items="items"
+        displayed="name"
+        :returned="['id', 'name']"
+      />
     </div>
   </div>
 </template>
@@ -20,15 +25,15 @@
       return {
         teste: {},
         items: [
-          "Banana",
-          "Morango",
-          "Caju",
-          "Laranja",
-          "Limão",
-          "Abacaxi",
-          "Manga",
-          "Melancia",
-          "Melão",
+          { name: "Banana", id: 1, teste: "teste" },
+          { name: "Morango", id: 2, teste: "teste" },
+          { name: "Caju", id: 3, teste: "teste" },
+          { name: "Laranja", id: 4, teste: "teste" },
+          { name: "Limão", id: 5, teste: "teste" },
+          { name: "Abacaxi", id: 6, teste: "teste" },
+          { name: "Manga", id: 7, teste: "teste" },
+          { name: "Melancia", id: 8, teste: "teste" },
+          { name: "Melão", id: 9, teste: "teste" },
         ],
       };
     },

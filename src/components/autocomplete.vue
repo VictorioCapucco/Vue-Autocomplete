@@ -7,7 +7,8 @@
       v-model="typed"
       :disabled="isLoading && disableWhenLoading"
       @input="
-        !openItems ? (openItems = true) : '', updateInput($event.target.value)
+        !openItems ? (openItems = true) : '',
+          updateInput($event.target.value, false)
       "
       @focus="openItems = true"
       @blur="closeItems"
@@ -92,36 +93,32 @@
         this.openItems = false;
 
         if (
-          !this.permitArbitratyValues ||
-          this.displayed !== null ||
-          this.returned !== null
+          !this.permitArbitratyValues &&
+          this.displayed === null &&
+          this.returned === null
         ) {
           if (
             this.items.find((element) => this.modelValue === element) ===
             undefined
           )
-            this.updateInput("");
+            this.updateInput("", false);
         }
       },
       updateInput(value, clicked) {
         if (this.displayed !== null) {
           if (clicked) {
             this.typed = value[this.displayed];
-            if (this.returned === null) {
-              this.$emit("update:modelValue", value);
-              console.log(value);
-            } else if (typeof this.returned === "string") {
-              console.log(value[this.returned]);
+            if (this.returned === null) this.$emit("update:modelValue", value);
+            else if (typeof this.returned === "string")
               this.$emit("update:modelValue", value[this.returned]);
-            } else {
+            else {
               let objectValue = {};
               for (let i = 0; i < this.returned.length; i++) {
                 objectValue[this.returned[i]] = value[this.returned[i]];
               }
-              console.log(objectValue);
               this.$emit("update:modelValue", objectValue);
             }
-          }
+          } else this.$emit("update:modelValue", { typed: this.typed });
         } else {
           this.$emit("update:modelValue", value);
           this.typed = value;
