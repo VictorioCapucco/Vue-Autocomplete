@@ -9,7 +9,7 @@ npm install vue-autocomplete-input-tag
 ```html
 <template>
   <div>
-     <autocomplete v-model="teste" :items="items" />
+     <autocomplete v-model="test" :items="items" />
   </div>
 </template>
 
@@ -23,17 +23,15 @@ npm install vue-autocomplete-input-tag
     },
     data() {
       return {
-        teste: "",
+        test: "",
         items: [
           "Banana",
-          "Morango",
-          "Caju",
-          "Laranja",
-          "Limão",
-          "Abacaxi",
-          "Manga",
-          "Melancia",
-          "Melão",
+          "Strawberry",
+          "Orange",
+          "Lemon",
+          "Pineapple",
+          "Watermelon",
+          "Melon",
         ],
       };
     },
@@ -45,9 +43,36 @@ npm install vue-autocomplete-input-tag
 ```html
 <template>
   <div>
-     <autocomplete v-model="teste" :items="items" isLoading="true" :disableWhenLoading="true" :permitArbitratyValues="false" :error="true" :inputHeight="40" />
+     <autocomplete 
+        v-model="test" 
+        :items="items" 
+        isLoading="true" 
+        :disableWhenLoading="true" 
+        :permitArbitratyValues="false" 
+        :error="true"
+        :inputHeight="40" 
+        displayed="name"
+        :returned="['id', 'name']" 
+     />
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        test: {},
+        items: [
+          { name: "Banana", id: 1, color: "Yellow" },
+          { name: "Strawberry", id: 2, color: "Red" },
+          { name: "Orange", id: 3, color: "Orange" },
+          { name: "Lemon", id: 4, color: "Green" },
+          { name: "Pineapple", id: 5, color: "Yellow" },
+          { name: "Watermelon", id: 6, color: "Red" },
+          { name: "Melon", id: 7, color: "Yellow" },
+        ],
+      }
+     }
+</script>
 ```
 <ul>
 <li><h4>isLoading:</h4> You can inform the component if something is loading. It works with 'disableWhenLoading' prop. It's a Boolean prop, and the default value is false.</li>
@@ -59,7 +84,15 @@ npm install vue-autocomplete-input-tag
 <li><h4>error:</h4> You can change the input's border color to red, when some error occurs. It's a Boolean prop, and the default value is false.</li>
 
 <li><h4>inputHeight:</h4> With this prop you can modify the input's height, in px. It's a Number prop, and the default value is 30. </li>
+  
+<li><h4>displayed:</h4> With this prop you can pass an array of objects in "items" prop, and inform the displayed field. It's a String prop, and the default value is null. If you pass an array of objects and don't inform this prop, the autocomplete will not work correctly. </li>
+  
+<li><h4>returned:</h4> With this prop you can inform the returned value, when use an array of objects. You can inform a single string (It will return just this field), an array of strings (with the fields you want to return) or nothing (It will return all the properties from the object). Only inform this prop if items prop is an array of objects. </li>
 </ul>
 
+### How does the reactivity works?
+If you pass an array of strings (first example) the return will be just a string with the typed value, and when you select some option will be the selected value. 
+
+If you pass an array of objects (second example), when you type, the returned value will be an object with "typed" property. And when you select some option, will return what you inform in "returned" prop. The typed property is returned because you can use @input and refresh the array.
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
