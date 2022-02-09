@@ -1,7 +1,7 @@
 {
   "name": "vue-autocomplete-input-tag",
   "author": "Victorio Capucço",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorioCapucco/Vue-Autocomplete"
@@ -13,7 +13,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:npm": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:stats": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js --report-json"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0"
   },
   "eslintConfig": {
     "root": true,
@@ -41,7 +51,6 @@
     "vue",
     "autocomplete",
     "vue3",
-    "taginput",
     "input"
   ]
 }
