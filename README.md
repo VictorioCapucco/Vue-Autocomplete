@@ -1,4 +1,4 @@
-# Vue Collapse [![npm](https://img.shields.io/npm/dt/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/v/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/l/vue-autocomplete-input-tag.svg)]()
+# [![npm](https://img.shields.io/npm/dt/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/v/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/l/vue-autocomplete-input-tag.svg)]()
 
 ## Vue autocomplete
 ```
