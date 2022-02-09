@@ -63,9 +63,9 @@
         type: Boolean,
         default: false,
       },
-      permitArbitratyValues: {
+      permitArbitraryValues: {
         type: Boolean,
-        default: true,
+        default: false,
       },
       modelValue: {},
       error: {
@@ -93,7 +93,7 @@
         this.openItems = false;
 
         if (
-          !this.permitArbitratyValues &&
+          !this.permitArbitraryValues &&
           this.displayed === null &&
           this.returned === null
         ) {

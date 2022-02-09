@@ -1,13 +1,13 @@
 <template>
   <div>
-    {{ teste }}
+    {{ test }}
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="teste">
       <autocomplete
         v-model="test"
         :items="items"
         displayed="name"
-        :returned="['id', 'name']"
+        :returned="['id', 'color']"
       />
     </div>
   </div>

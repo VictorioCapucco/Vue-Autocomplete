@@ -48,7 +48,7 @@ npm install vue-autocomplete-input-tag
         :items="items" 
         isLoading="true" 
         :disableWhenLoading="true" 
-        :permitArbitratyValues="false" 
+        :permitArbitraryValues="true" 
         :error="true"
         :inputHeight="40" 
         displayed="name"
@@ -84,7 +84,7 @@ npm install vue-autocomplete-input-tag
 
 <li><h4>disableWhenLoading:</h4> Disable input to user when the prop 'isLoading' is true. It's a Boolean prop, and the default value is false.</li>
 
-<li><h4>permitArbitraryValues:</h4> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is true.</li>
+<li><h4>permitArbitraryValues:</h4> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is false.</li>
 
 <li><h4>error:</h4> You can change the input's border color to red, when some error occurs. It's a Boolean prop, and the default value is false.</li>
 
