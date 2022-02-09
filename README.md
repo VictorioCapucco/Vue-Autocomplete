@@ -1,3 +1,5 @@
+# Vue Collapse [![npm](https://img.shields.io/npm/dt/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/v/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/l/vue-autocomplete-input-tag.svg)]()
+
 ## Vue autocomplete
 ```
 npm install vue-autocomplete-input-tag
@@ -43,7 +45,7 @@ npm install vue-autocomplete-input-tag
 ```html
 <template>
   <div>
-     <autocomplete v-model="teste" :items="items" isLoading="true" :disableWhenLoading="true" :permitArbitratyValues="true" :error="true" :inputHeight="40" />
+     <autocomplete v-model="teste" :items="items" isLoading="true" :disableWhenLoading="true" :permitArbitratyValues="false" :error="true" :inputHeight="40" />
   </div>
 </template>
 ```
@@ -52,7 +54,7 @@ npm install vue-autocomplete-input-tag
 
 <li><h4>disableWhenLoading:</h4> Disable input to user when the prop 'isLoading' is true. It's a Boolean prop, and the default value is false.</li>
 
-<li><h4>permitArbitraryValues:</h4> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is false.</li>
+<li><h4>permitArbitraryValues:</h4> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is true.</li>
 
 <li><h4>error:</h4> You can change the input's border color to red, when some error occurs. It's a Boolean prop, and the default value is false.</li>
 
