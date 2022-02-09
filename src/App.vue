@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ teste }}
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="teste">
       <autocomplete v-model="teste" :items="items" />
@@ -17,7 +18,7 @@
     },
     data() {
       return {
-        teste: "",
+        teste: {},
         items: [
           "Banana",
           "Morango",

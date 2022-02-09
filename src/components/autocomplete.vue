@@ -4,7 +4,7 @@
       class="input"
       :class="error ? 'error' : ''"
       :style="`height: ${inputHeight}px;`"
-      :value="modelValue"
+      v-model="typed"
       :disabled="isLoading && disableWhenLoading"
       @input="
         !openItems ? (openItems = true) : '', updateInput($event.target.value)
@@ -17,10 +17,10 @@
       <div
         v-for="item in filteredItems"
         :key="item"
-        @mousedown="updateInput(item)"
+        @mousedown="updateInput(item, true)"
         class="item"
       >
-        {{ item }}
+        {{ displayed != null ? item[displayed] : item }}
       </div>
     </div>
   </div>
@@ -30,16 +30,25 @@
     data() {
       return {
         openItems: false,
+        typed: "",
       };
     },
     computed: {
       filteredItems() {
-        return this.items.filter((item) => {
-          return item
-            .toString()
-            .toLowerCase()
-            .includes(this.modelValue.toLowerCase());
-        });
+        if (this.displayed !== null)
+          return this.items.filter((item) => {
+            return item[this.displayed]
+              .toString()
+              .toLowerCase()
+              .includes(this.typed.toLowerCase());
+          });
+        else
+          return this.items.filter((item) => {
+            return item
+              .toString()
+              .toLowerCase()
+              .includes(this.typed.toLowerCase());
+          });
       },
     },
     props: {
@@ -57,10 +66,7 @@
         type: Boolean,
         default: true,
       },
-      modelValue: {
-        type: String,
-        default: "",
-      },
+      modelValue: {},
       error: {
         type: Boolean,
         default: false,
@@ -73,12 +79,23 @@
         type: Boolean,
         default: false,
       },
+      displayed: {
+        type: String,
+        default: null,
+      },
+      returned: {
+        default: null,
+      },
     },
     methods: {
       closeItems() {
         this.openItems = false;
 
-        if (!this.permitArbitratyValues) {
+        if (
+          !this.permitArbitratyValues ||
+          this.displayed !== null ||
+          this.returned !== null
+        ) {
           if (
             this.items.find((element) => this.modelValue === element) ===
             undefined
@@ -86,8 +103,29 @@
             this.updateInput("");
         }
       },
-      updateInput(value) {
-        this.$emit("update:modelValue", value);
+      updateInput(value, clicked) {
+        if (this.displayed !== null) {
+          if (clicked) {
+            this.typed = value[this.displayed];
+            if (this.returned === null) {
+              this.$emit("update:modelValue", value);
+              console.log(value);
+            } else if (typeof this.returned === "string") {
+              console.log(value[this.returned]);
+              this.$emit("update:modelValue", value[this.returned]);
+            } else {
+              let objectValue = {};
+              for (let i = 0; i < this.returned.length; i++) {
+                objectValue[this.returned[i]] = value[this.returned[i]];
+              }
+              console.log(objectValue);
+              this.$emit("update:modelValue", objectValue);
+            }
+          }
+        } else {
+          this.$emit("update:modelValue", value);
+          this.typed = value;
+        }
       },
     },
   };
