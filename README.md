@@ -57,7 +57,12 @@ npm install vue-autocomplete-input-tag
   </div>
 </template>
 <script>
+  import autocomplete from 'vue-autocomplete-input-tag'
+  
   export default {
+    components: {
+      autocomplete,
+    },
     data() {
       return {
         test: {},
