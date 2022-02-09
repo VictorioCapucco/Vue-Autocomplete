@@ -4,7 +4,7 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="teste">
       <autocomplete
-        v-model="teste"
+        v-model="test"
         :items="items"
         displayed="name"
         :returned="['id', 'name']"
@@ -23,17 +23,15 @@
     },
     data() {
       return {
-        teste: {},
+        test: {},
         items: [
-          { name: "Banana", id: 1, teste: "teste" },
-          { name: "Morango", id: 2, teste: "teste" },
-          { name: "Caju", id: 3, teste: "teste" },
-          { name: "Laranja", id: 4, teste: "teste" },
-          { name: "Limão", id: 5, teste: "teste" },
-          { name: "Abacaxi", id: 6, teste: "teste" },
-          { name: "Manga", id: 7, teste: "teste" },
-          { name: "Melancia", id: 8, teste: "teste" },
-          { name: "Melão", id: 9, teste: "teste" },
+          { name: "Banana", id: 1, color: "Yellow" },
+          { name: "Strawberry", id: 2, color: "Red" },
+          { name: "Orange", id: 3, color: "Orange" },
+          { name: "Lemon", id: 4, color: "Green" },
+          { name: "Pineapple", id: 5, color: "Yellow" },
+          { name: "Watermelon", id: 6, color: "Red" },
+          { name: "Melon", id: 7, color: "Yellow" },
         ],
       };
     },
