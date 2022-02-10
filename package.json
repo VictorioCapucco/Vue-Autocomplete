@@ -1,14 +1,14 @@
 {
   "name": "vue-autocomplete-input-tag",
   "author": "Victorio Capucço",
-  "version": "0.2.5",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorioCapucco/Vue-Autocomplete"
   },
   "main": "./dist/vueAutocompleteInput.common.js",
   "license": "MIT",
-  "description": "A library to show items from an array, when user types some value presents in it",
+  "description": "With this library you can search items in an array and select the desired value through an input.",
   "files": [
     "dist/*"
   ],
@@ -18,6 +18,12 @@
     "build:npm": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js",
     "lint": "vue-cli-service lint",
     "build:stats": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js --report-json"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5"
+  },
+  "peerDependencies": {
+    "vue": "3.x.x"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
