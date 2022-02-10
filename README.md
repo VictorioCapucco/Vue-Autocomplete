@@ -15,6 +15,7 @@ npm install vue-autocomplete-input-tag
 
 <script>
   import autocomplete from 'vue-autocomplete-input-tag'
+  import "vue-autocomplete-input-tag/dist/vueAutocompleteInput.css"; // if some problem occurs with css
 
   export default {
     name: "App",
@@ -58,6 +59,7 @@ npm install vue-autocomplete-input-tag
 </template>
 <script>
   import autocomplete from 'vue-autocomplete-input-tag'
+  import "vue-autocomplete-input-tag/dist/vueAutocompleteInput.css"; // if some problem occurs with css
   
   export default {
     components: {
@@ -94,6 +96,9 @@ npm install vue-autocomplete-input-tag
   
 <li><h4>returned:</h4> With this prop you can inform the returned value, when use an array of objects. You can inform a single string (It will return just this field), an array of strings (with the fields you want to return) or nothing (It will return all the properties from the object). Only inform this prop if items prop is an array of objects. </li>
 </ul>
+
+### Appearance
+![autocomplete_example](https://user-images.githubusercontent.com/65973246/153506766-8e7548ce-652f-4c1b-bf13-3c01114bcd21.png)
 
 ### How does the reactivity works?
 If you pass an array of strings (first example) the return will be just a string with the typed value, and when you select some option will be the selected value. 
