@@ -8,7 +8,7 @@
   },
   "main": "./dist/vueAutocompleteInput.common.js",
   "license": "MIT",
-  "description": "A library to show items from an array, when user types some value presents in it",
+  "description": "With this library you can search items in an array and select the desired value through an input.",
   "files": [
     "dist/*"
   ],
