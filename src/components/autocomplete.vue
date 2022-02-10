@@ -1,8 +1,8 @@
 <template>
   <div>
     <input
-      class="input"
-      :class="error ? 'error' : ''"
+      class="autocomplete-input"
+      :class="error ? 'autocomplete-error' : ''"
       :style="`height: ${inputHeight}px;`"
       v-model="typed"
       :disabled="isLoading && disableWhenLoading"
@@ -13,13 +13,16 @@
       @focus="openItems = true"
       @blur="closeItems"
     />
-    <div class="items" :style="`display: ${openItems ? 'grid' : 'none'};`">
+    <div
+      class="autocomplete-items"
+      :style="`display: ${openItems ? 'grid' : 'none'};`"
+    >
       <!-- Use @mousedown because @click occurs after @blur and make bugs -->
       <div
         v-for="item in filteredItems"
         :key="item"
         @mousedown="updateInput(item, true)"
-        class="item"
+        class="autocomplete-item"
       >
         {{ displayed != null ? item[displayed] : item }}
       </div>
@@ -63,9 +66,9 @@
         type: Boolean,
         default: false,
       },
-      permitArbitratyValues: {
+      permitArbitraryValues: {
         type: Boolean,
-        default: true,
+        default: false,
       },
       modelValue: {},
       error: {
@@ -93,7 +96,7 @@
         this.openItems = false;
 
         if (
-          !this.permitArbitratyValues &&
+          !this.permitArbitraryValues &&
           this.displayed === null &&
           this.returned === null
         ) {
@@ -127,8 +130,8 @@
     },
   };
 </script>
-<style scoped>
-  .input {
+<style>
+  .autocomplete-input {
     width: 100%;
     border: 1px solid transparent;
     color: #666;
@@ -138,7 +141,7 @@
     box-sizing: border-box;
     font-size: 14px;
   }
-  .items {
+  .autocomplete-items {
     max-height: 200px;
     margin-top: 8px;
     width: 100%;
@@ -146,7 +149,7 @@
     border-radius: 8px;
     overflow: auto;
   }
-  .item {
+  .autocomplete-item {
     padding: 6px 16px;
     color: #4a4a4a;
     max-width: 100%;
@@ -154,10 +157,10 @@
     text-align: left;
     font-size: 14px;
   }
-  .error {
+  .autocomplete-error {
     border: 1px solid red;
   }
-  .item:hover {
+  .autocomplete-item:hover {
     background-color: #e8e8e8;
   }
 </style>

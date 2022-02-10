@@ -1,7 +1,7 @@
 {
   "name": "vue-autocomplete-input-tag",
   "author": "Victorio Capucço",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorioCapucco/Vue-Autocomplete"
@@ -11,6 +11,41 @@
   "description": "A library to show items from an array, when user types some value presents in it",
   "files": [
     "dist/*"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:npm": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js",
+    "lint": "vue-cli-service lint",
+    "build:stats": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js --report-json"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
   ],
   "keywords": [
     "vue",
