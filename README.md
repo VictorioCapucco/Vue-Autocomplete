@@ -15,8 +15,9 @@ npm install vue-autocomplete-input-tag
   <div>
      <autocomplete 
         v-model="test"
-        vue2 // Pass this prop if you are using vue 2. If you are using vue 3 do not inform.
         :items="items"
+        vue2 // Pass this prop if you are using vue 2. If you are using vue 3 do not inform.
+        @input="doSomething"
      />
   </div>
 </template>
