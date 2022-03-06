@@ -4,7 +4,7 @@ import component from './components/autocomplete.vue';
 export function install(Vue) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component('vue-autocomplete', component);
+  Vue.component('vue-autocomplete-input-tag', component);
 }
 
 // Create module definition for Vue.use()
