@@ -45,15 +45,10 @@
         type: String,
         default: null,
       },
-      vue2: {
-        type: Boolean,
-        default: false,
-      },
       returned: {
         default: null,
       },
       modelValue: {},
-      value: {},
     },
     data() {
       return {
@@ -96,8 +91,7 @@
         }
       },
       updateVModel(newValue) {
-        if (this.vue2) this.$emit("input", newValue);
-        else this.$emit("update:modelValue", newValue);
+        this.$emit("update:modelValue", newValue);
       },
       updateInput(value, clicked) {
         if (this.displayed !== null) {
@@ -115,8 +109,10 @@
             }
           } else this.updateVModel({ typed: this.typed });
         } else {
-          this.updateVModel(value);
-          this.typed = value;
+          if (value != this.modelValue) {
+            this.typed = value;
+            this.updateVModel(value);
+          }
         }
       },
     },
