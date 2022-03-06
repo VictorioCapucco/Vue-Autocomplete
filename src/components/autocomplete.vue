@@ -53,6 +53,7 @@
         default: null,
       },
       modelValue: {},
+      value: {},
     },
     data() {
       return {
