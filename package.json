@@ -1,10 +1,10 @@
 {
   "name": "vue-autocomplete-input-tag",
   "author": "Victorio Capucço",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VictorioCapucco/Vue-Autocomplete"
+    "url": "git+https://github.com/VictorioCapucco/vue-autocomplete-input-tag"
   },
   "main": "./dist/vueAutocompleteInput.common.js",
   "license": "MIT",
@@ -17,7 +17,10 @@
     "build:npm": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js"
   },
   "dependencies": {
-    "core-js": "^3.6.5"
+    "core-js": "^3.21.1"
+  },
+  "peerDependencies": {
+    "vue": "3.x.x"
   },
   "keywords": [
     "vue",
