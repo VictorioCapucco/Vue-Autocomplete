@@ -1,7 +1,7 @@
 {
   "name": "vue-autocomplete-input-tag",
   "author": "Victorio Capucço",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorioCapucco/Vue-Autocomplete"
