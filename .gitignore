@@ -3,6 +3,7 @@ node_modules
 /dist
 /public
 /package-lock.json
+/babel.config.js
 
 # local env files
 .env.local
