@@ -5,7 +5,7 @@
       :class="error ? 'autocomplete-error' : ''"
       :style="`height: ${inputHeight}px;`"
       v-model="typed"
-      :disabled="isLoading && disableWhenLoading"
+      v-bind="$attrs"
       @input="
         !openItems ? (openItems = true) : '',
           updateInput($event.target.value, false)
@@ -31,6 +31,7 @@
 </template>
 <script>
   export default {
+    inheritAttrs: false,
     data() {
       return {
         openItems: false,
@@ -62,10 +63,6 @@
           return [];
         },
       },
-      disableWhenLoading: {
-        type: Boolean,
-        default: false,
-      },
       permitArbitraryValues: {
         type: Boolean,
         default: false,
@@ -78,10 +75,6 @@
       inputHeight: {
         type: Number,
         default: 30,
-      },
-      isLoading: {
-        type: Boolean,
-        default: false,
       },
       displayed: {
         type: String,
