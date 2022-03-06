@@ -1,9 +1,6 @@
 <template>
   <div>
     <input
-      class="autocomplete-input"
-      :class="error ? 'autocomplete-error' : ''"
-      :style="`height: ${inputHeight}px;`"
       v-model="typed"
       v-bind="$attrs"
       @input="
@@ -14,7 +11,7 @@
       @blur="closeItems"
     />
     <div
-      class="autocomplete-items"
+      class="vue-autocomplete-input-tag-items"
       :style="`display: ${openItems ? 'grid' : 'none'};`"
     >
       <!-- Use @mousedown because @click occurs after @blur and make bugs -->
@@ -22,7 +19,7 @@
         v-for="item in filteredItems"
         :key="item"
         @mousedown="updateInput(item, true)"
-        class="autocomplete-item"
+        class="vue-autocomplete-input-tag-item"
       >
         {{ displayed != null ? item[displayed] : item }}
       </div>
@@ -123,37 +120,3 @@
     },
   };
 </script>
-<style>
-  .autocomplete-input {
-    width: 100%;
-    border: 1px solid transparent;
-    color: #666;
-    border-radius: 10px;
-    outline: none;
-    padding: 9px 14px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-  .autocomplete-items {
-    max-height: 200px;
-    margin-top: 8px;
-    width: 100%;
-    background-color: white;
-    border-radius: 8px;
-    overflow: auto;
-  }
-  .autocomplete-item {
-    padding: 6px 16px;
-    color: #4a4a4a;
-    max-width: 100%;
-    cursor: pointer;
-    text-align: left;
-    font-size: 14px;
-  }
-  .autocomplete-error {
-    border: 1px solid red;
-  }
-  .autocomplete-item:hover {
-    background-color: #e8e8e8;
-  }
-</style>
