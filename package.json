@@ -20,10 +20,8 @@
     "build:stats": "vue-cli-service build --target lib --name vueAutocompleteInput src/index.js --report-json"
   },
   "dependencies": {
-    "core-js": "^3.6.5"
-  },
-  "peerDependencies": {
-    "vue": "3.x.x"
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

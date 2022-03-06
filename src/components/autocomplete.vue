@@ -16,10 +16,10 @@
     >
       <!-- Use @mousedown because @click occurs after @blur and make bugs -->
       <div
-        v-for="item in filteredItems"
-        :key="item"
-        @mousedown="updateInput(item, true)"
+        v-for="(item, index) in filteredItems"
+        :key="index"
         class="vue-autocomplete-input-tag-item"
+        @mousedown="updateInput(item, true)"
       >
         {{ displayed != null ? item[displayed] : item }}
       </div>
@@ -28,32 +28,13 @@
 </template>
 <script>
   export default {
+    name: "VueAutocompleteInputTag",
     inheritAttrs: false,
-    data() {
-      return {
-        openItems: false,
-        typed: "",
-      };
-    },
-    computed: {
-      filteredItems() {
-        if (this.displayed !== null)
-          return this.items.filter((item) => {
-            return item[this.displayed]
-              .toString()
-              .toLowerCase()
-              .includes(this.typed.toLowerCase());
-          });
-        else
-          return this.items.filter((item) => {
-            return item
-              .toString()
-              .toLowerCase()
-              .includes(this.typed.toLowerCase());
-          });
-      },
-    },
     props: {
+      vue2: {
+        type: Boolean,
+        default: false,
+      },
       items: {
         type: Array,
         default: () => {
@@ -81,6 +62,30 @@
         default: null,
       },
     },
+    data() {
+      return {
+        openItems: false,
+        typed: "",
+      };
+    },
+    computed: {
+      filteredItems() {
+        if (this.displayed !== null)
+          return this.items.filter((item) => {
+            return item[this.displayed]
+              .toString()
+              .toLowerCase()
+              .includes(this.typed.toLowerCase());
+          });
+        else
+          return this.items.filter((item) => {
+            return item
+              .toString()
+              .toLowerCase()
+              .includes(this.typed.toLowerCase());
+          });
+      },
+    },
     methods: {
       closeItems() {
         this.openItems = false;
@@ -97,23 +102,27 @@
             this.updateInput("", false);
         }
       },
+      updateVModel(newValue) {
+        if (this.vue2) this.$emit("input", newValue);
+        else this.$emit("update:modelValue", newValue);
+      },
       updateInput(value, clicked) {
         if (this.displayed !== null) {
           if (clicked) {
             this.typed = value[this.displayed];
-            if (this.returned === null) this.$emit("update:modelValue", value);
+            if (this.returned === null) this.updateVModel(value);
             else if (typeof this.returned === "string")
-              this.$emit("update:modelValue", value[this.returned]);
+              this.updateVModel(value[this.returned]);
             else {
-              let objectValue = {};
+              const objectValue = {};
               for (let i = 0; i < this.returned.length; i++) {
                 objectValue[this.returned[i]] = value[this.returned[i]];
               }
-              this.$emit("update:modelValue", objectValue);
+              this.updateVModel(objectValue);
             }
-          } else this.$emit("update:modelValue", { typed: this.typed });
+          } else this.updateVModel({ typed: this.typed });
         } else {
-          this.$emit("update:modelValue", value);
+          this.updateVModel(value);
           this.typed = value;
         }
       },

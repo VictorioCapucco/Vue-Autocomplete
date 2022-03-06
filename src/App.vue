@@ -6,7 +6,6 @@
       :items="items"
       displayed="name"
       class="autocomplete-input"
-      :returned="['id', 'color']"
     />
   </div>
 </template>
