@@ -31,10 +31,6 @@
     name: "VueAutocompleteInputTag",
     inheritAttrs: false,
     props: {
-      vue2: {
-        type: Boolean,
-        default: false,
-      },
       items: {
         type: Array,
         default: () => {
@@ -45,22 +41,18 @@
         type: Boolean,
         default: false,
       },
-      modelValue: {},
-      error: {
-        type: Boolean,
-        default: false,
-      },
-      inputHeight: {
-        type: Number,
-        default: 30,
-      },
       displayed: {
         type: String,
         default: null,
       },
+      vue2: {
+        type: Boolean,
+        default: false,
+      },
       returned: {
         default: null,
       },
+      modelValue: {},
     },
     data() {
       return {
