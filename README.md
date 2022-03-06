@@ -1,13 +1,13 @@
 # [![npm](https://img.shields.io/npm/dt/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/v/vue-autocomplete-input-tag.svg)]() [![npm](https://img.shields.io/npm/l/vue-autocomplete-input-tag.svg)]()
 
-## Vue autocomplete
-```
+## vue-autocomplete-input-tag
 With this library you can search items in an array and select the desired value through an input. 
-This library works with vue 3 and vue 2 (you will need to inform passing vue2 prop)
-
+<br />
+This library works with <b>vue 3</b>. If you use vue 2, you can use my another library exclusive to this
+<br />
+version:: https://www.npmjs.com/package/vue2-autocomplete-input-tag
 
 npm install vue-autocomplete-input-tag
-```
 
 ## Usage
 ```html
@@ -16,15 +16,12 @@ npm install vue-autocomplete-input-tag
      <autocomplete 
         v-model="test"
         :items="items"
-        vue2 // Pass this prop if you are using vue 2. If you are using vue 3 do not inform.
-        @input="doSomething"
      />
   </div>
 </template>
 
 <script>
   import autocomplete from 'vue-autocomplete-input-tag'
-
   export default {
     name: "App",
     components: {
@@ -58,8 +55,6 @@ You can pass attributes to input, like disabled and class
      <autocomplete 
         v-model="test" 
         :items="items" 
-        :returned="['id', 'name']" 
-        displayed="name"
         disabled
         class="my-custom-class"
      />
@@ -75,12 +70,34 @@ You can pass attributes to input, like disabled and class
      <autocomplete 
         v-model="test" 
         :items="items" 
-        :permitArbitraryValues="true" 
+        permitArbitraryValues
         :returned="['id', 'name']" 
         displayed="name"
      />
   </div>
 </template>
+<script>
+  import autocomplete from 'vue-autocomplete-input-tag'
+  
+  export default {
+    components: {
+      autocomplete,
+    },
+    data() {
+      return {
+        test: {},
+        items: [
+          { name: "Banana", id: 1, color: "Yellow" },
+          { name: "Strawberry", id: 2, color: "Red" },
+          { name: "Orange", id: 3, color: "Orange" },
+          { name: "Lemon", id: 4, color: "Green" },
+          { name: "Pineapple", id: 5, color: "Yellow" },
+          { name: "Watermelon", id: 6, color: "Red" },
+          { name: "Melon", id: 7, color: "Yellow" },
+        ],
+      }
+     }
+</script>
 ```
 <ul>
 <li><h4>permitArbitraryValues:</h4> If the user does not select some option and the input lose focus, this prop permit the digited value. It's a Boolean prop, and the default value is false.</li>
